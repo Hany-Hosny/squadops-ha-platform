@@ -7,7 +7,7 @@ variable "project_name" {
 variable "aws_region" {
   description = "AWS region where the networking stack will be created."
   type        = string
-  default     = "eu-central-1"
+  default     = "us-east-1"
 }
 
 variable "vpc_cidr" {
@@ -19,13 +19,13 @@ variable "vpc_cidr" {
 variable "availability_zone_a" {
   description = "First availability zone."
   type        = string
-  default     = "eu-central-1a"
+  default     = "us-east-1a"
 }
 
 variable "availability_zone_b" {
   description = "Second availability zone."
   type        = string
-  default     = "eu-central-1b"
+  default     = "us-east-1b"
 }
 
 variable "public_subnet_a_cidr" {
@@ -57,4 +57,3 @@ variable "db_subnet_b_cidr" {
   type    = string
   default = "10.0.22.0/24"
 }
-
