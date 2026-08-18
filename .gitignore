@@ -5,6 +5,12 @@
 *.tfstate
 *.tfstate.*
 
+# AWS credentials and exported access-key files
+*.csv
+*.pem
+*.key
+.aws/
+
 # Crash log files
 crash.log
 crash.*.log
