@@ -26,15 +26,8 @@ resource "aws_launch_template" "app" {
 
   vpc_security_group_ids = [var.app_security_group_id]
 
-  user_data = base64encode(<<-USERDATA
-              #!/bin/bash
-              dnf update -y
-              dnf install -y nginx amazon-cloudwatch-agent
-              systemctl enable --now nginx
-              echo "<h1>SquadOps HA Web Platform - App Tier</h1>" > /usr/share/nginx/html/index.html
-              echo "OK" > /usr/share/nginx/html/health
-              USERDATA
-  )
+  # استدعاء ملف الـ User Data الخارجي وتشفيره بـ Base64
+  user_data = filebase64("${path.module}/user-data.sh")
 
   metadata_options {
     http_endpoint               = "enabled"
